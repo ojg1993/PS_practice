@@ -1,0 +1,5 @@
+# 10824
+
+a = input().split()
+
+print(int(a[0]+a[1]) + int(a[2]+a[3]))
