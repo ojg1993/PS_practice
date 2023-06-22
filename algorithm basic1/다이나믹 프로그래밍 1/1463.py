@@ -1,5 +1,4 @@
 #1463
-
 n = int(input())
 cache = [0] * (n+1)
 
