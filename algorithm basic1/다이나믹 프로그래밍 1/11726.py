@@ -1,6 +1,4 @@
 # 11726
-import sys
-sys.setrecursionlimit(10000) # recursion max setting
 
 N = int(input())
 mod = 10007
