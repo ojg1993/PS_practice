@@ -1,7 +1,9 @@
 # 11726
+import sys
+sys.setrecursionlimit(10_000)
 
 N = int(input())
-mod = 10007
+mod = 10_007
 
 cache = [0] * 1001
 cache[1] = 1
