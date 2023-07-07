@@ -14,5 +14,5 @@ for i in range(1, n):
     cache[i][1] = min(cache[i-1][0], cache[i-1][2]) + cache[i][1]
     cache[i][2] = min(cache[i-1][0], cache[i-1][1]) + cache[i][2]
 
-print(min(cache[n-1][0], cache[n-1][1], cache[n-1][2]))
+print(min(cache[-1]))
 
