@@ -1,0 +1,5 @@
+#ignore files 
+
+*.txt
+.vscode
+test.py
