@@ -107,3 +107,147 @@ for i in range(n):
                   shape10(i,j), shape11(i,j), shape12(i,j), shape13(i,j), shape14(i,j), shape15(i,j), shape16(i,j), shape17(i,j), shape18(i,j), shape19(i,j))
 
 print(ans)
+
+
+## 1차시도
+
+# def count(b, a, figure):
+#     tmp = 0
+#     if figure == 'a': #         막대
+#         sum = 0
+#         if a+4 <= x: # x축 좌->우
+#             for i in range(a, a+4):
+#                 sum += array[b][i]
+#             tmp = sum
+#             sum = 0
+#         if b+4 <= y: # y축 상->하
+#             for i in range(b, b+4):
+#                 sum += array[i][a]
+#             tmp = max(ans, sum)
+#
+#     elif figure == 'b': #      정사각형
+#         sum = 0
+#         if a+2 <= x and b+2 <= y:
+#             for i in range(b, b+2): # y축
+#                 for j in range(a, a+2): # x축
+#                     sum += array[i][j]
+#             tmp = sum
+#
+#     elif figure == 'c':#         ㄱ & ㄴ
+#         sum = 0
+#         if b+3 <= y and a+2 <= x: # ㄴ자 좌 -> 우
+#             for i in range(b, b+3):
+#                 sum += array[i][a]
+#             sum += array[b+2][a+1]
+#             tmp = sum
+#             sum = 0
+#         if b+3 <= y and a-1 >= 0: # ㄴ자 반전 우 -> 좌  ####
+#             for i in range(b, b+3):
+#                 sum += array[i][a]
+#             sum += array[b+2][a-1]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if  b+2 <= y and a+3 <= x: #ㄴ자 시계방향
+#             for i in range(a, a+3):
+#                 sum += array[b][i]
+#             sum += array[b+1][a]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if  b+2 <= y and a+3 <= x: #ㄴ자 시계방향 상하 반전
+#             for i in range(a, a+3):
+#                 sum += array[b+1][i]
+#             sum += array[b][a]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if  b+2 <= y and a+3 <= x: #ㄴ자 반시계 시계방향
+#             for i in range(a, a+3):
+#                 sum += array[b+1][i]
+#             sum += array[b][a+2]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if  b+2 <= y and a+3 <= x: #ㄴ자 반시계 시계방향 상하반전
+#             for i in range(a, a+3):
+#                 sum += array[b][i]
+#             sum += array[b+1][a+2]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if a-1 >= 0 and b+3 <= y: # ㄱ자
+#             for i in range(b, b+3):
+#                 sum += array[i][a]
+#             sum += array[b][a-1]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if b+3 <= y and a+2 <= x: # ㄱ반전
+#             for i in range(b, b+3):
+#                 sum += array[i][a]
+#             sum += array[b][a+1]
+#             tmp = max(tmp, sum)
+#
+#
+#     elif figure == 'd':         # ㄴㄱ
+#         sum = 0
+#         if b+3 <= y and a+2 <= x: # ㄴㄱ 정자
+#             for i in range(b, b+2):
+#                 sum += array[i][a]
+#             for i in range(b+1, b+3):
+#                 sum += array[i][a+1]
+#             tmp = sum
+#             sum = 0
+#         if b+3 <= y and a+2 <= x: # ㄴㄱ 반전
+#             for i in range(b+1, b+3):
+#                 sum += array[i][a]
+#             for i in range(b, b+2):
+#                 sum += array[i][a+1]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if a+3 <= x and b+2 <= y: # ㄴㄱ 시계방향
+#             for i in range(a+1, a+3):
+#                 sum += array[b][i]
+#             for i in range(a, a+2):
+#                 sum += array[b+1][i]
+#             tmp = max(tmp, sum)
+#             sum = 0
+#         if a+3 <= x and b+2 <= y: # ㄴㄱ 시계방향 반전
+#             for i in range(a, a+2):
+#                 sum += array[b][i]
+#             for i in range(a+1, a+3):
+#                 sum += array[b+1][i]
+#             tmp = max(tmp, sum)
+#
+#     elif figure == 'e':
+#         sum = 0
+#         if b+2 <= y and a+3 <= x: # 화살표 정방향
+#             for i in range(a, a+3):
+#                 sum += array[b][i]
+#             sum += array[b+1][a+1]
+#             tmp = sum
+#             sum=0
+#         if b+2 <= y and a+3 <= x: # 화살표 상하반전
+#             for i in range(a, a+3):
+#                 sum += array[b+1][i]
+#             sum += array[b][a+1]
+#             tmp = max(tmp, sum)
+#             sum=0
+#         if b+3 <= y and a+2 <= x: # 화살표 시계방향
+#             for i in range(b, b+3):
+#                 sum += array[i][a+1]
+#             sum += array[b+1][a]
+#             tmp = max(tmp, sum)
+#             sum=0
+#         if b+3 <= y and a+2 <= x: # 화살표 반시계방향
+#             for i in range(b, b+3):
+#                 sum += array[i][a]
+#             sum += array[b+1][a+1]
+#             tmp = max(tmp, sum)
+#
+#     return tmp
+#
+#
+# y, x = map(int,input().split())
+# array = [list(map(int, input().split())) for _ in range(y)]
+# ans = 0
+#
+# for i in range(y):
+#     for j in range(x):
+#         ans = max(ans, count(i, j, 'a'), count(i, j, 'b'), count(i, j, 'c'), count(i, j, 'd'), count(i, j, 'e'))
+# print(ans)
