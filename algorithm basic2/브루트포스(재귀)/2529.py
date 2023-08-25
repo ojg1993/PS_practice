@@ -6,24 +6,22 @@ def input():
 
 def check(a, b, op):
     if op == '<':
-        if a > b: return False
-    elif op == '>':
-        if a < b: return False
-    return True
+        return a < b
+    else:
+        return a > b
 
 
-def dfs(cnt, num):
-    if cnt == n+1:
+def dfs(depth, num):
+    if depth == n+1:
         ans.append(num)
         return
     else:
         for i in range(10):
-            if visit[i]: continue
-
-            if not cnt or check(num[cnt-1], str(i), signs[cnt-1]):
-                visit[i] = True
-                dfs(cnt+1, num+str(i))
-                visit[i] = False
+            if not visit[i]:
+                if not depth or check(num[depth-1], str(i), signs[depth-1]):
+                    visit[i] = True
+                    dfs(depth+1, num+str(i))
+                    visit[i] = False
 
 
 
@@ -33,6 +31,5 @@ if __name__ == '__main__':
     visit = [False] * 10
     ans = []
     dfs(0, '')
-    ans.sort()
     print(ans[-1])
     print(ans[0])
