@@ -3,30 +3,29 @@ import sys
 def input():
     return sys.stdin.readline().rstrip()
 
-def dfs(idx, number):
-    if number == 4:
+def dfs(idx, depth):
+    if depth == 5:
         print(1)
         exit()
-    for i in adjacent[idx]:
-        if not visited[i]:
-            visited[i] = True
-            dfs(i, number + 1)
-            visited[i] = False
-
+    else:
+        for g in graph[idx]:
+            if not visited[g]:
+                visited[g] = True
+                dfs(g, depth+1)
+                visited[g] = False
 
 if __name__ == '__main__':
     n, m = map(int, input().split())
-    adjacent = [[] for _ in range(n)]
+    graph = [[] for _ in range(n)]
     visited = [False] * n
-    ans = False
 
     for _ in range(m):
-        a, b = map(int, input().split())
-        adjacent[a].append(b)
-        adjacent[b].append(a)
+        a,b = map(int, input().split())
+        graph[a].append(b)
+        graph[b].append(a)
 
     for i in range(n):
         visited[i] = True
-        dfs(i, 0)
+        dfs(i, 1)
         visited[i] = False
     print(0)
