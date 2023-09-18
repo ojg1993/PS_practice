@@ -9,8 +9,7 @@ def dfs(s_node, group):
 
     for n_node in graph[s_node]:
         if not visited[n_node]:
-            tmp = dfs(n_node, -group)
-            if not tmp:
+            if not dfs(n_node, -group):
                 return False
         elif visited[n_node] == visited[s_node]:
             return False
