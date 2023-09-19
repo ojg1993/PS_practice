@@ -5,29 +5,26 @@ sys.setrecursionlimit(1000000)
 def input():
     return sys.stdin.readline().rstrip()
 
-def count_houses(graph, y, x):
+def count_houses(complex, y, x):
     queue = deque()
     queue.append((y, x))
-    graph[y][x] = 0
+    complex[y][x] = 0
     house_cnt = 1
 
     while queue:
         y, x = queue.popleft()
-        for i in range(4):
-            ny = y + dy[i]
-            nx = x + dx[i]
+        for dy, dx in d:
+            ny = y + dy
+            nx = x + dx
 
-            if ny < 0 or ny >= n or nx < 0 or nx >= n:
-                continue
-            if graph[ny][nx]:
-                graph[ny][nx] = 0
+            if (0 <= ny < n) and (0 <= nx < n) and complex[ny][nx]:
+                complex[ny][nx] = 0
                 queue.append((ny, nx))
                 house_cnt += 1
     return house_cnt
 
 if __name__ == '__main__':
-    dx = [0,0,1,-1]
-    dy = [1,-1,0,0]
+    d = [(1, 0), (-1, 0), (0, 1),(0, -1)]
 
     n = int(input())
     complexes = [list(map(int, input())) for _ in range(n)]
