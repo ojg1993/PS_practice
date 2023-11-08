@@ -16,33 +16,33 @@ def input():
         1. 노드 간선 정보 및 거리 정보 입력
             -> 2차원 리스트 사용 연결 노드 및 연결 노드까지의 거리 튜플 저장 ex) graph[node] = (adj, dist)
         2. 노드간 거리 합산
-            -> BFS활용 트리 지름공식 전개
+            -> BFS활용 트리 지름공식 전개(임의 노드 a에서 가장먼 b를 구하고 b에서 가장먼 c를 구하기)
 '''
 
 def bfs(s_node):
+    visited = [-1] * (n+1)
+    visited[s_node] = 0
     q = deque()
     q.append((s_node, 0))
     res = [0, 0] # 노드, 거리
 
     while q:
-        current_node, current_distance = q.popleft()
+        cur_n, cur_d = q.popleft()
 
-        for adj, dist in graph[n]:
-            if visited[adj] == -1:
-                dist_cal = current_distance + adj
-                q.append((adj, dist_cal))
-                visited[adj] = dist_cal
+        for adj_n, adj_d in graph[cur_n]:
+            if visited[adj_n] == -1:
+                dist_cal = cur_d + adj_d
+                q.append((adj_n, dist_cal))
+                visited[adj_n] = dist_cal
 
                 if res[1] < dist_cal:
-                    res[0] = adj
-                    res[1] = dist_cal
+                    res[0], res[1] = adj_n, dist_cal
     return res
 
 
 if __name__ == '__main__':
     n = int(input())
     graph = [[] for _ in range(n+1)]
-    visited = [-1 for _ in range(n + 1)]
 
     for _ in range(n):
         info = list(map(int, input().split()))
@@ -53,6 +53,5 @@ if __name__ == '__main__':
             graph[node].append((adj_node, distance))
             idx += 2
 
-    visited[1] = 0
     node, distance = bfs(1)
     print(bfs(node)[1])
