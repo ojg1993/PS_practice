@@ -1,2 +1,4 @@
-- PS solve practice
-  - start date: 2023. 5. 24.
+- Problem solving practice
+  - boj start date: 2023. 5. 24.
+  - boj end date: 2023. 12. 9.
+  - leetcode start date: 2023. 12. 10.
