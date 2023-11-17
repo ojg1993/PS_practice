@@ -5,12 +5,10 @@ class Solution:
 
         ans=""
         strs.sort()
-        l = strs[0]
-        r = strs[-1]
 
-        for i in range(len(min(l, r))):
-            if l[i] != r[i]:
+        for i in range(len(min(strs[0], strs[-1]))):
+            if strs[0][i] != strs[-1][i]:
                 return ans
             else:
-                ans += l[i]
+                ans += strs[0][i]
         return ans
