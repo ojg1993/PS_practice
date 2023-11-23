@@ -1,6 +1,3 @@
-from itertools import combinations
-
-
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
 
