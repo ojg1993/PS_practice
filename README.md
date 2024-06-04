@@ -1,4 +1,5 @@
 - Problem solving practice
   - boj start date: 2023. 5. 24.
   - boj end date: 2023. 11. 9.
-  - leetcode start date: 2023. 11. 10.
+  - leetcode exploration: 2023. 11. 10. ~ 2024. 1. 13.
+  - leetcode start date: 2024. 6. 4. 
