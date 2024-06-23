@@ -1,9 +1,7 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        words = s.split(" ")
-        for word in words[::-1]:
-            if word != "":
-                return len(word)
+        words = s.split()
+        return len(words[-1])
 
 
 a = Solution()
