@@ -6,8 +6,13 @@ class Solution:
         3. insert newInterval into intervals
           case
             a. newInterval is not overlapping and less the current interval
+              -> append newInterval and update newInterval to current interval(very important)
             b. newInterval is not overlapping and bigger than the current interval
+              -> append(interval)
             c. newInterval is overlapping the current interval
+              -> update newInterval to [min, max]
+        4. append newInterval there's always one interval not appended(very important)
+        5. return res
         Int:    ---    --- --- ---
         New: --     --   ------    ---
         """
