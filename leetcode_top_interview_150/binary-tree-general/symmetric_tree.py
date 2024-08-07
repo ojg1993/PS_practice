@@ -12,4 +12,5 @@ class Solution:
             elif not left or not right or left.val != right.val:
                 return False
             return bfs(left.left, right.right) and bfs(left.right, right.left)
-        return bfs(root.left, root.right)        return bfs(root.left, root.right)
+
+        return bfs(root.left, root.right)
